@@ -1,16 +1,16 @@
 /*metodos:
-relevancia(string, pNoticias);
-    getNoticias();
+relevancia(string, pDatos);
+    getDatos();
 
-buscarNoticia(string, pPalabras);
+buscarNoticia(string, pInf);
     /recibe input de una lista de palabras
     /con un for se separan y se envian una por una a:
-    buscar(string, pPalabra);
+    buscar(string, pInf);
 
-eliminarNoticia(string, pPalabras);
+eliminarNoticia(string, pInf);
     /recibe input de una lista de palabras
     /con un for se separan y se envian una por una a:
-    buscar(string, pPalabra);
+    buscar(string, pInf);
 
 relevancia(string, [+x, -x]);
     buscar(string);
