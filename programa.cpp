@@ -84,17 +84,17 @@ int main()
     while(op!=0);
     */
 
-  TDA->agr("hola");
-  TDA.agr("mundo");
-  TDA.agr("hola");
+  fTda.agr("hola");
+  fTda.agr("mundo");
+  fTda.agr("hola");
 
   vector<string> lista = {"hola", "mundo"};
 
-  TDA.mostrar();
+  fTda.mostrar();
 
-  TDA.eliminar(lista);
+  fTda.eliminar(lista);
 
-  TDA.mostrar();
+  fTda.mostrar();
 
   return 0;
 }

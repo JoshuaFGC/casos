@@ -11,26 +11,28 @@
 using namespace std;
 
 struct operacion{
+    private:
+        struct listaD *f; 
+
     public:
-    
-        void agregar(listaD *TDA, string dato){
-            TDA.agr(dato);
+        void agregar(listaD *f, string dato){
+            f.agr(dato);
         }
         
 
-        void eliminarN(listaD *TDA, vector<string> lista){
+        void eliminarN(listaD *f, vector<string> lista){
             for (string palabra : lista){
-                TDA.eliminar(palabra);
+                f.eliminar(palabra);
             }
         }
 
         void mostrarN(){
-            TDA.mostrar();
+            f.mostrar();
         }
 
-        void mostrarE(listaD *TDA, vector<string> lista){
+        void mostrarE(listaD *f, vector<string> lista){
             for(string palabra:lista){
-                TDA.mostrar(palabra);
+                f.mostrar(palabra);
             }
         };
 };
