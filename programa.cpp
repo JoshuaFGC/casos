@@ -2,8 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "TDA.h"
-#include "nododoble.h"
+
 #include "operaciones.h"
 
 using namespace std;
@@ -85,9 +84,7 @@ int main()
     while(op!=0);
     */
 
-   TDA TDA;
-
-  TDA.agr("hola");
+  TDA->agr("hola");
   TDA.agr("mundo");
   TDA.agr("hola");
 

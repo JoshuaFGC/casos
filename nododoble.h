@@ -3,7 +3,9 @@
 
 #include <iostream>
 #include <string>
+
 using namespace std;
+
 struct nododoble {
     string data;
     nododoble *sig = nullptr;

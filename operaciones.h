@@ -1,6 +1,6 @@
 
 #ifndef operaciones
-#define operaciones 1
+#define operaciones 
 
 #include <iostream>
 #include <string>
@@ -10,23 +10,28 @@
 
 using namespace std;
 
-void agregar(string dato){
-    agr(dato);
-}
+struct operacion{
+    public:
+    
+        void agregar(listaD *TDA, string dato){
+            TDA.agr(dato);
+        }
+        
 
-void eliminarN(vectot<string> lista){
-    for (string palabra : lista){
-        eliminar(palabra);
-    }
-}
+        void eliminarN(listaD *TDA, vector<string> lista){
+            for (string palabra : lista){
+                TDA.eliminar(palabra);
+            }
+        }
 
-void mostrarN(){
-    mostrar();
-}
+        void mostrarN(){
+            TDA.mostrar();
+        }
 
-void mostrarE(vector<string> lista){
-    for(string palabra:lista){
-        mostrar(palabra);
-    }
-}
+        void mostrarE(listaD *TDA, vector<string> lista){
+            for(string palabra:lista){
+                TDA.mostrar(palabra);
+            }
+        };
+};
 #endif
