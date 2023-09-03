@@ -1,18 +1,32 @@
-/*metodos:
-relevancia(string, pDatos);
-    getDatos();
 
-buscarNoticia(string, pInf);
-    /recibe input de una lista de palabras
-    /con un for se separan y se envian una por una a:
-    buscar(string, pInf);
+#ifndef operaciones
+#define operaciones 1
 
-eliminarNoticia(string, pInf);
-    /recibe input de una lista de palabras
-    /con un for se separan y se envian una por una a:
-    buscar(string, pInf);
+#include <iostream>
+#include <string>
+#include "TDA.h"
 
-relevancia(string, [+x, -x]);
-    buscar(string);
-    eliminar(string);
-*/
+
+
+using namespace std;
+
+void agregar(string dato){
+    agr(dato);
+}
+
+void eliminarN(vectot<string> lista){
+    for (string palabra : lista){
+        eliminar(palabra);
+    }
+}
+
+void mostrarN(){
+    mostrar();
+}
+
+void mostrarE(vector<string> lista){
+    for(string palabra:lista){
+        mostrar(palabra);
+    }
+}
+#endif
