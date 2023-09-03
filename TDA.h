@@ -12,6 +12,7 @@ struct listaD{
     private:
         nododoble *head = nullptr;
         nododoble *tail = nullptr;
+    
 
     public:
         void agr(string dato){
@@ -33,6 +34,15 @@ struct listaD{
                 cout<<aux->data<<endl;
                 aux = aux->sig;
             }
+        }
+
+        void mostrar_especificos(string palabra){
+            nododoble *aux = head;
+            while(aux != nullptr){
+                cout<<aux->data<<endl;
+
+            }
+            aux = aux->sig;
         }
 
         void eliminar(string dato){

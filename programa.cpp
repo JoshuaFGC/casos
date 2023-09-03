@@ -6,6 +6,7 @@
 #include "operaciones.h"
 
 using namespace std;
+
 int op;
 string dato;
 string palabras;
@@ -15,38 +16,11 @@ string pal;
 string palabra;
 string titular;
 
-/*
-noticia *n1;
-n1.titular="hola joshua";
-n1.relevancia=1;
-
-noticia *n2;
-n2.titular="WERTYUJKJHGF";
-n2.relevancia=2;
-
-noticia *n3;
-n3.titular="FGHJKL";
-n3.relevancia=3;
-
-noticia *n4;
-n4.titular="QWERTY";
-n4.relevancia=4;
-
-noticia *n5;
-n5.titular="NFAS";
-n5.relevancia=5;
-TDA.agr(n1);
-TDA.agr(n2);
-TDA.agr(n3);
-TDA.agr(n4);
-TDA.agr(n5);
-*/
-
-listaD* TDA = new listaD();
-
 int main()
-{
-   /*cout<<"1. AGREGAR NOTICIA"<<endl;
+{   
+    private:
+        struct operacion *funcionesOperaciones;
+    cout<<"1. AGREGAR NOTICIA"<<endl;
     cout<<"2. MOSTRAR NOTICIAS POR RELEVANCIA"<<endl;
     cout<<"3. MOSTRAR NOTICIAS ESPECIFICAS"<<endl;
     cout<<"4. ELIMINAR NOTICIA"<<endl;
@@ -57,20 +31,20 @@ int main()
         case 1:
             cout<<"Ingrese el titular"<<endl;
             cin>>dato;
-            TDA->agr(dato);
+            funcionesOperaciones->agregar(dato);
             break;
         case 2:
-            TDA->mostrar();
+            funcionesOperaciones->mostrarN();
             break;
         case 3:
             cout<<"Ingrese las palabras clave"<<endl;
             cin>> palabras;
-            //operaciones.mostrarNoticia(palabras);
+            funcionesOperaciones->mostrarE(palabras);
             break;
         case 4:
             cout<<"Ingrese las palabras clave"<<endl;
             cin>> arr2;
-            //operaciones.eliminarNoticia(arr2);
+            funcionesOperaciones->eliminarN(arr2);
             break;
         case 5:
         
@@ -82,19 +56,8 @@ int main()
             break;
         }
     while(op!=0);
-    */
 
-  fTda.agr("hola");
-  fTda.agr("mundo");
-  fTda.agr("hola");
 
-  vector<string> lista = {"hola", "mundo"};
-
-  fTda.mostrar();
-
-  fTda.eliminar(lista);
-
-  fTda.mostrar();
 
   return 0;
 }
