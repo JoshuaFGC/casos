@@ -13,7 +13,7 @@ using namespace std;
 struct operacion{
     private:
         struct listaD *funcionTDA; 
-
+        
     public:
         void agregar(listaD *funcionTDA, string dato){
             funcionTDA->agr(dato);
@@ -34,6 +34,10 @@ struct operacion{
             for(string palabra : lista){
                 funcionTDA->mostrar_especificos(palabra);
             }
+        };
+
+        void reorganizarN(listaD *funcionTDA, int rActual, int rNueva){
+            funcionTDA->reorganizar(rActual, rNueva);
         };
 };
 #endif
