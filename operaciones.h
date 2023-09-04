@@ -10,17 +10,21 @@
 
 using namespace std;
 
+
+
+
+
 struct operacion{
     private:
         struct listaD *funcionTDA; 
         
     public:
-        void agregar(listaD *funcionTDA, string dato){
+        void agregar(struct noticia *dato){
             funcionTDA->agr(dato);
         }
         
 
-        void eliminarN(listaD *funcionTDA, vector<string> lista){
+        void eliminarN(vector<string> lista){
             for (string palabra : lista){
                 funcionTDA->eliminar(palabra);
             }
@@ -30,13 +34,13 @@ struct operacion{
             funcionTDA->mostrar();
         }
 
-        void mostrarE(listaD *funcionTDA, vector<string> lista){
+        void mostrarE(vector<string> lista){
             for(string palabra : lista){
                 funcionTDA->mostrar_especificos(palabra);
             }
         };
 
-        void reorganizarN(listaD *funcionTDA, int rActual, int rNueva){
+        void reorganizarN(int rActual, int rNueva){
             funcionTDA->reorganizar(rActual, rNueva);
         };
 };

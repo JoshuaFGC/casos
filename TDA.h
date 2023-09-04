@@ -6,18 +6,21 @@
 #include <string>
 #include "nododoble.h"
 
-
+string dato;
+string palabra;
+int rActual;
+int rNueva;
 
 struct listaD{
     private:
-        nododoble *head = nullptr;
-        nododoble *tail = nullptr;
+        nododoble* head = nullptr;
+        nododoble* tail = nullptr;
     
 
     public:
-        void agr(string dato){
-            nododoble *nuevo = new nododoble;
-            nuevo->data = dato;
+        void agr(struct noticia* dato){
+            nododoble* nuevo = (nododoble*)malloc(sizeof(struct nododoble));
+            nuevo->data = *dato;
             if(head == nullptr){
                 head = nuevo;
                 tail = nuevo;
@@ -31,24 +34,24 @@ struct listaD{
         void mostrar(){
             nododoble *aux = head;
             while(aux != nullptr){
-                cout<<aux->data<<endl;
+                cout<<aux<<endl;
                 aux = aux->sig;
             }
         }
 
-        void mostrar_especificos(string palabra){
+        void mostrar_especificos(palabra){
             nododoble *aux = head;
             while(aux != nullptr){
-                cout<<aux->data<<endl;
+                cout<<aux<<endl;
 
             }
             aux = aux->sig;
         }
 
-        void eliminar(string dato){
+        void eliminar(struct noticia *dato){
             nododoble *aux = head;
             while(aux != nullptr){
-                if(aux->data == dato){
+                if(aux->data.titulo == *dato->titulo){
                     if(aux == head){
                         head = head->sig;
                         head->ant = nullptr;
@@ -70,17 +73,17 @@ struct listaD{
             }
         }
 
-        nododoble* buscarNodo(int rActual,  listaD *head, listaD *tail){
+        nododoble* buscarNodo(int rActual){
             nododoble *nActual = head;
-            tail = head;
+            nododoble *cola = tail;
             for(int i=0; i<rActual; i++){
-                tail = nActual;
+                cola = nActual;
                 nActual = nActual->sig;
             }
             return nActual;
         }
         void reorganizar(int rActual, int rNueva){
-            nododoble *nodo = buscarNodo(rActual, listaD.head, nullptr)
+            nododoble *nActual = buscarNodo(rActual);
             if (rNueva > 0){
                 for(int i = 0; i < rNueva; i++){
                     nActual--;
