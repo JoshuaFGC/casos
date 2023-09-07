@@ -4,33 +4,28 @@
 #include "TDA.h"
 #include "operaciones.h"
 
+
+
 using namespace std;
-    
-
-int rActual;
-int rNueva;
-string dato;
-vector<string> palabras = {"NEED"};
-vector<string> arr = {"RAMON"};
-
-
 int main()
 {
 
     listaD listad;
-    listad.agr("HOLA PEDRO");
-    listad.agr("CARROS CAEN");
-    listad.agr("NEED FOR SPEED");
-    listad.agr("HOT WHEELS");
-    listad.agr("ADIOS RAMON");
+    listad.agr(END, "HOLA PEDRO NEED");
+    listad.agr(END, "CARROS CAEN");
+    listad.agr(END, "NEED FOR SPEED");
+    listad.agr(END, "HOT WHEELS");
+    listad.agr(END, "ADIOS RAMON");
 
     listad.mostrar();
-
-    listad.mostrar_especificos(palabras);
-
-    listad.eliminar(arr);
-
+    cout<<"mostar"<<endl;
+    listad.mostrar_especificos("NEED");
+    cout<<"especificos"<<endl;
+    listad.eliminar("HOLA");
+    cout<<"eliminar"<<endl;
     listad.reorganizar(1, +2);
 
+    listad.mostrar();
+    cout<<"waza"<<endl;
 
-}
+};

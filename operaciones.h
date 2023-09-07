@@ -1,17 +1,14 @@
 
 #ifndef operaciones
-#define operaciones 
+#define operaciones 1
 
 #include <iostream>
 #include <string>
+#include <vector>
 #include "TDA.h"
 
-
-
-using namespace std;
-
-
-
+#define START 0
+#define END 999999999
 
 
 struct operacion{
@@ -19,8 +16,9 @@ struct operacion{
         struct listaD *funcionTDA; 
         
     public:
-        void agregar(struct noticia *dato){
-            funcionTDA->agr(dato);
+        void agregar(listaD &funcionTDA, string dato){
+            funcionTDA.agr(END, dato);
+
         }
         
 
@@ -43,5 +41,22 @@ struct operacion{
         void reorganizarN(int rActual, int rNueva){
             funcionTDA->reorganizar(rActual, rNueva);
         };
+
+        void noticias(){
+            Newsapi newsapi;
+
+            vector<News *> allrecords = newsapi.getRecords();
+
+            for(News *record : allrecords){
+                cout <<"Autor: "<< record->getTitle() << endl;
+                cout <<"Titulo: "<< record->getAuthor() << endl;
+                cout <<"Descripcion: "<<record->getDescription() << endl;
+            }
+        }
+
+
 };
+
+
+
 #endif

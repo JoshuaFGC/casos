@@ -5,12 +5,10 @@
 #include <string>
 
 using namespace std;
-struct noticia{
-    string titulo;
-};
+
 
 struct nododoble {
-    struct noticia data;
+    string titulo;
     struct nododoble* sig = nullptr;
     struct nododoble* ant = nullptr;
 

@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include "nododoble.h"
+#include "news.cpp"
 
 string dato;
 string palabra;
@@ -18,56 +19,80 @@ struct listaD{
     
 
     public:
-        void agr(struct noticia* dato){
+        void agr(int pPosition, const string &pDato){
             nododoble* nuevo = (nododoble*)malloc(sizeof(struct nododoble));
-            nuevo->data = *dato;
+            nuevo->titulo=pDato;
             if(head == nullptr){
                 head = nuevo;
                 tail = nuevo;
-            }else{
-                tail->sig = nuevo;
+                nuevo->sig = head;
                 nuevo->ant = tail;
-                tail = nuevo;
+            }else{
+                if(pPosition == 0){
+                    nuevo->sig = head;
+                    nuevo->ant = tail;
+                    head->ant = nuevo;
+                    tail->sig = nuevo;
+                
+            }else{
+                int pActual = 0;
+                nododoble* aux = head;
+
+                while(aux!=tail && pActual<pPosition){
+                    aux = aux->sig;
+                    pActual++;
+                }
+                nuevo->sig=aux->sig;
+                nuevo->ant=aux;
+                aux->sig=nuevo;
+                if(aux==tail){
+                    tail=nuevo;
+                    head->sig=nuevo;
+                }
             }
         }
+        }
+        
 
         void mostrar(){
             nododoble *aux = head;
+
             while(aux != nullptr){
-                cout<<aux<<endl;
+
+                cout<<aux->titulo<<endl;
                 aux = aux->sig;
+   
             }
         }
 
-        void mostrar_especificos(palabra){
+        void mostrar_especificos(string palabra){
             nododoble *aux = head;
             while(aux != nullptr){
-                cout<<aux<<endl;
+                if(aux->titulo==palabra){
+                    cout<<aux->titulo<<endl;
+                }
+                 aux = aux->sig;
 
             }
-            aux = aux->sig;
+            
         }
 
-        void eliminar(struct noticia *dato){
+        void eliminar(string dato){
             nododoble *aux = head;
             while(aux != nullptr){
-                if(aux->data.titulo == *dato->titulo){
+                if(aux->titulo == dato){
                     if(aux == head){
                         head = head->sig;
                         head->ant = nullptr;
-                        delete aux;
-                        break;
                     }else if(aux == tail){
                         tail = tail->ant;
                         tail->sig = nullptr;
-                        delete aux;
-                        break;
                     }else{
                         aux->ant->sig = aux->sig;
                         aux->sig->ant = aux->ant;
-                        delete aux;
-                        break;
                     }
+                    delete aux;
+                    return;
                 }
                 aux = aux->sig;
             }
@@ -82,28 +107,29 @@ struct listaD{
             }
             return nActual;
         }
+
         void reorganizar(int rActual, int rNueva){
             nododoble *nActual = buscarNodo(rActual);
-            if (rNueva > 0){
+            if (rNueva >= 0){
                 for(int i = 0; i < rNueva; i++){
-                    nActual--;
-                    nododoble* nAnt = nActual->ant;
-                    nododoble* nSig = nActual->sig;
-
-                    nAnt->sig = nSig;
-                    nSig->ant = nAnt;
+                    nActual = nActual->ant;
                 }
             }else{
                 for(int i=0; i>rNueva; i--){
-                    nActual++;
-
-                    nododoble* nAnt = nActual->ant;
-                    nododoble* nSig = nActual->sig;
-
-                    nAnt->sig = nSig;
-                    nSig->ant = nAnt;
+                    nActual= nActual->sig;
                 }
             }
         }
+
+
+        void mostrarNoticiasApi(){
+            Newsapi newsapi;
+            vector<News *> allrecords = newsapi.getRecords();
+            for (const News *record : allrecords) {
+                cout << record->getTitle() << endl;
+            }
+        }
+
 };
+
 #endif
